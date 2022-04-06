@@ -1,0 +1,80 @@
+﻿<Page x:Class="PITPMKurs.Registration"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PITPMKurs"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Registration">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="92*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="133*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="81*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" VerticalAlignment="Top" Height="22" Margin="0,40,0,0">
+            <TextBlock Foreground="#2a2922" TextAlignment="Center" FontSize="20" FontFamily="Monterrat" HorizontalAlignment="Center" Height="36" Width="224" >
+                Создание аккаунта
+            </TextBlock>
+        </StackPanel>
+        <Grid Grid.Row="2" Margin="0,1,0,2">
+            <TextBox Foreground="AliceBlue" TextAlignment="Center" Style="{DynamicResource TextBoxRadiusOkrug}" VerticalAlignment="Top" Margin="30,0,30,0" Height="23" x:Name="LoginTextBox" />
+            <TextBlock  Height="25" IsHitTestVisible="False" Text="Логин" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="39,3,30,0" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=LoginTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="2" Grid.RowSpan="5" Margin="0,40,0,81">
+            <TextBox   Foreground="AliceBlue"  TextAlignment="Center" Style="{DynamicResource TextBoxRadiusOkrug}" VerticalAlignment="Top" Margin="30,0,30,30" Height="23" x:Name="PasswordTextBox" />
+            <TextBlock  Height="25" IsHitTestVisible="False" Text="Пароль" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="39,3,30,0" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=PasswordTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="3" Margin="0,40,0,81" Grid.RowSpan="4">
+            <TextBox   Foreground="AliceBlue"  TextAlignment="Center" Style="{DynamicResource TextBoxRadiusOkrug}" VerticalAlignment="Top" Margin="30,0,30,30" Height="23" x:Name="EmailTextBox" />
+            <TextBlock  Height="25" IsHitTestVisible="False" Text="Почта" TextAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="39,3,30,0" Foreground="DarkGray">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Visibility" Value="Collapsed"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=EmailTextBox}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="6">
+            <Label MouseDown="Label_MouseDown" Grid.Row="3" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Light" Height="27" Width="96" Foreground="Black">Уже есть аккаунт?</Label>
+            <Border PreviewMouseDown="RegBorder_PreviewMouseDown" MouseLeave="RegBorder_MouseLeave" x:Name="RegBorder" Padding="5" BorderThickness="1" Background="#7d5642" CornerRadius="10" Height="50" Margin="50,6,50,0" MouseEnter="Border_MouseEnter" >
+                <TextBlock Foreground="AliceBlue" Text="Зарегистрироваться" TextAlignment="Center" VerticalAlignment="Center" />
+            </Border>
+        </Grid>
+    </Grid>
+</Page>
